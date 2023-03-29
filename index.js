@@ -12,6 +12,10 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use(cors());
 
+app.get("/", (req, res) => {
+  res.send("working");
+});
+
 app.use("/api/v1", otproutes);
 app.use("/api/v1", userRoutes);
 expressWs.app.ws("/echo/:id", (ws, req) => {
